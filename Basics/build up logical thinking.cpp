@@ -791,157 +791,159 @@ void pattern22( int n)
 {
 
 
-    // 4       4 4 4 4 4    4 
-    // 4 3       3 3 3    3 4
-    // 4 3 2       2    2 3 4
-    // 4 3 2 1          2 3 4
-    // 4 3 2 2 2 3 4
-    // 4 3 3 3 3 3 4
-    // 4 4 4 4 4 4 4 
+    // // 4       4 4 4 4 4    4 
+    // // 4 3       3 3 3    3 4
+    // // 4 3 2       2    2 3 4
+    // // 4 3 2 1          2 3 4
+    // // 4 3 2 2 2 3 4
+    // // 4 3 3 3 3 3 4
+    // // 4 4 4 4 4 4 4 
 
 
-    // 4 
-    // 4 3 
-    // 4 3 2 
-    // 4 3 2 1 
+    // // 4 
+    // // 4 3 
+    // // 4 3 2 
+    // // 4 3 2 1 
     
 
 
-    //outer loop prints number of rows ie n 
-    for ( int i=1; i<=n ; i++)
-    {
+    // //outer loop prints number of rows ie n 
+    // for ( int i=1; i<=n ; i++)
+    // {
   
-        int value = n;
+    //     int value = n;
 
-        //print values in decending ordeer which alwas start from n
-        for ( int j=1; j<= i ; j++)
-        {
-            cout << value << " ";
-            value--;
-        }
+    //     //print values in decending ordeer which alwas start from n
+    //     for ( int j=1; j<= i ; j++)
+    //     {
+    //         cout << value << " ";
+    //         value--;
+    //     }
 
-        //end of line
-        cout << endl;
-    }
+    //     //end of line
+    //     cout << endl;
+    // }
 
-    cout << endl << endl << endl;
+    // cout << endl << endl << endl;
 
-    // 4 
-    // 4 3 
-    // 4 3 2 
-    // 4 3 2 1 
+    // // 4 
+    // // 4 3 
+    // // 4 3 2 
+    // // 4 3 2 1 
 
-    // 2nd half the i increases but nubers printed is decreasing
-    // 4 3 2 
-    // 4 3 
-    // 4 
+    // // 2nd half the i increases but nubers printed is decreasing
+    // // 4 3 2 
+    // // 4 3 
+    // // 4 
     
-    int numberOfPrintsInEachRow = 1;
+    // int numberOfPrintsInEachRow = 1;
+
+    // //outer loop prints number of rows ie 2n-1
+    // for ( int i=1; i<= 2*n-1 ; i++)
+    // {
+  
+    //     int value = n;
+
+    //     //print values in decending ordeer which alwas start from n
+    //     for ( int j=1; j<= numberOfPrintsInEachRow ; j++)
+    //     {
+    //         cout << value << " ";
+    //         value--;
+    //     }
+
+    //     //
+    //     if ( i < n )
+    //     {
+    //         numberOfPrintsInEachRow++;
+    //     }
+    //     else
+    //     {
+    //         numberOfPrintsInEachRow--;
+    //     }
+    //     //end of line
+    //     cout << endl;
+    // }
+
+    // cout << endl << endl << endl;
+
+    // // 4           4
+    // // 4 3       3 4
+    // // 4 3 2   2 3 4
+    // // 4 3 2 1 2 3 4
+
+    // // 2nd half the i increases but nubers printed is decreasing
+    // // 4 3 2 
+    // // 4 3 
+    // // 4 
+    
+    int number = 1;
+    int space = 2*n-3; //5
 
     //outer loop prints number of rows ie 2n-1
-    for ( int i=1; i<= 2*n-1 ; i++)
+    for ( int i=1; i<= 2*n-1 ; i++) //i=4, 4<=7
     {
-  
-        int value = n;
+        
 
-        //print values in decending ordeer which alwas start from n
-        for ( int j=1; j<= numberOfPrintsInEachRow ; j++)
+        // 4 3 2 1 2 3 4
+        if( i == n) // 4==4
         {
-            cout << value << " ";
-            value--;
-        }
+            // 4 3 2 1 
+            for ( int j=n; j>=1; j--) //j=4, j>=1
+            {
+                cout << j << " ";
+            }
 
-        //
-        if ( i < n )
-        {
-            numberOfPrintsInEachRow++;
+            //2 3 4
+            for ( int j=2; j<=n; j++)
+            {
+                cout << j << " ";
+            }
+   
         }
         else
         {
-            numberOfPrintsInEachRow--;
-        }
-        //end of line
-        cout << endl;
-    }
+            int valueD = n;
 
-    cout << endl << endl << endl;
+            //numbers
+            //4 3 2 * 2 3 4
+            //4 3 2 
+            for ( int j=1; j<= number ; j++)
+            {
+                cout << valueD << " ";
+                valueD--;
+            }
 
-    // 4           4
-    // 4 3       3 4
-    // 4 3 2   2 3 4
-    // 4 3 2 1 2 3 4
+            //spaces
+            for ( int j=1; j<= space; j++)
+            {
+                cout << n-number+1 << " "  ;
+            }
+            
+            int valueI = n-number+1;
+            //numbers
+            //print values in decending order starting from n.
+            for ( int j=1; j<= number ; j++)
+            {
+                cout << valueI << " ";
+                valueI++;
+            }
 
-    // 2nd half the i increases but nubers printed is decreasing
-    // 4 3 2 
-    // 4 3 
-    // 4 
-    
-    numberOfPrintsInEachRow = 1;
-
-    int space = 2*n-3;
-
-    //outer loop prints number of rows ie 2n-1
-    for ( int i=1; i<= 2*n-1 ; i++)
-    {
-  
-        int valueD = n;
-
-        //numbers
-        //print values in decending order starting from n.
-        for ( int j=1; j<= numberOfPrintsInEachRow ; j++)
-        {
-            cout << valueD << " ";
-            valueD--;
-        }
-
-        //spaces
-        //i , space
-
-        for ( int j=1; j<= space; j++)
-        {
-            cout << "* " ;
         }
         
 
-
-
-        int valueI = n-i+1;
-        //numbers
-        //print values in decending order starting from n.
-        for ( int j=1; j<= numberOfPrintsInEachRow ; j++)
-        {
-            cout << valueI << " ";
-            valueI++;
-        }
-
-
         //
         if ( i < n )
         {
-            numberOfPrintsInEachRow++;
-
-            if ( space == 1 ) 
-            {
-                space = 0;
-            }
-            else 
-            {
-                space = space - 2;
-            }
-                
+            number++; 
+            space = space - 2;
 
         }
         else
         {
-            numberOfPrintsInEachRow--;
-            if ( space == 1 ) 
-            {
-                space = 0;
-            }
-            else 
-            {
-                space = space + 2;
-            }
+            number--; //3
+            space = space + 2;
+
+
         }
         //end of line
         cout << endl;
