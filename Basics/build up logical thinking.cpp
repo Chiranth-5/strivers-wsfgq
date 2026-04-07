@@ -285,50 +285,48 @@ void pattern10( int n)
     //[1, 1, 2]
     //[2, 2, 1]
     //[3, 3, 0]
+
     //[2, 2, 1]
     //[1, 1, 2]
+
+    
 
     // 2 halfs 
     //[1, 1, 2]
     //[2, 2, 1]
     //[3, 3, 0]
     //[i, i, n-i ]
-    for ( int i=1; i<=n ; i++)
-    {
-        // star
-        for( int j=1; j<= i; j++)
-        {
-            cout << "* ";
-        } 
-
-        // //space 
-        // for( int j=1; j<=n-i; j++)
-        // {
-        //     cout << "  ";
-        // }
-
-        cout << endl;
-    }
 
     //[2, 2, 1]
     //[1, 1, 2]
     //[n-i, n-i, i]
 
-    for ( int i=1; i<=n; i++)
-    {
+    // second half star decreases.
+    // so we cannot map the number of stars printed to i directly.
 
-        //star
-        for ( int j=1; j<=n-i; j++)
+    int star = 1;
+    for ( int i=1; i<=n ; i++)
+    {
+        // star
+        for( int j=1; j<= star; j++)
         {
             cout << "* ";
         }
-        // //space
-        // for ( int j=1; j<=i; j++)
-        // {
-        //     cout << "  ";
-        // }
+
+        //end of line
+        if ( star <=n)
+        {
+            star++;
+        }
+        else
+        {
+            star--;
+        }
         cout << endl;
     }
+
+
+
 
     
     
@@ -579,66 +577,447 @@ void pattern18( int n)
 {
     // C 
     // B C 
-    // A B C 
+    // A B C
+
+    //outer loop runs n times.
+
+    string s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    for ( int i=1; i<=n; i++)
+    {
+        //Inner loop prints 
+        // i, charchter, number of charachter.
+        // 1, C   (2)     , 1
+        // 2, B C   (1)   , 2
+        // 3, A B C   (0) , 3
+
+        int start = n-i;
+        
+        for ( int j=1; j<=i; j++)
+        {  
+            // each line.
+            
+            cout << s[start] << " ";
+            start++;
+        }
+
+        //end of line
+        cout << endl;
+    }
 
 }
 
+void pattern19( int n)
+{
+    //* * * * * *
+    //* *     * *
+    //*         *
+    //* *     * *
+    //* * * * * *
 
+    //outer loop prints number of rows ie 2n
+    for ( int i=1; i<=2*n ; i++)
+    {
+        //each line prints star , space , space , star.
+        // i, star, space , space ,star
+        // 1, 3, 0, 0, 3
+        // 2, 2, 1, 1, 2
+        // 3, 1, 2, 2, 1
+        // 4, 
+        // 5,
+        // 6,
+        // i,n-i+1, i-1, i-1, n-i+1
+
+        int newR = i;
+        if( newR > n)
+        {
+          newR = (2*n-i+1);  
+        }
+
+        //star
+        for ( int j=1; j<= n-newR+1 ; j++)
+        {
+            cout << "* ";
+        }
+
+        //space
+        for ( int j=1; j<= newR-1 ; j++)
+        {
+            cout << "  ";
+        }
+
+        //space
+        for ( int j=1; j<= newR-1 ; j++)
+        {
+            cout << "  ";
+        }
+
+        //star
+        for ( int j=1; j<= n-newR+1 ; j++)
+        {
+            cout << "* ";
+        }
+
+        //end of line
+        cout << endl;
+    }
+}
+
+void pattern20( int n)
+{
+
+    //*         *
+    //* *     * *
+    //* * * * * *
+    //* *     * *
+    //*         *
+
+    int star = 1;           // initial value, moves by 1
+    int space = 2*(n-1);    // initial value, moves by 2
+    int rows = (2*n) -1 ; 
+
+    //outer loop prints number of rows 
+    for ( int i=1; i<= rows ; i++)
+    {
+        //each line prints star , space , star.
+        // i, star, space , space ,star
+        // 1, 1, 4, 1
+        // 2, 2, 2, 2
+        // 3, 3, 0, 3
+        // 4, 
+        // 5,
+        // 6,
+        // i, i , 2(n-i), i
+
+        // second haf cannot be mapped to i. so star and space follows its own pattern.
+        // because i always increases.
+        // the number of stars decreases by 1 and number of space increases by 2.
+
+
+        //star
+        for ( int j=1; j<= star ; j++)
+        {
+            cout << "* ";
+        }
+
+        //space
+        for ( int j=1; j<= space ; j++)
+        {
+            cout << "  ";
+        }
+
+        //star
+        for ( int j=1; j<= star ; j++)
+        {
+            cout << "* ";
+        }
+
+        //at line 3 ( ie n) we need to decrese the star and increase the space by 2.
+        if ( i < n)
+        {
+            star++;
+            space = space -2;
+        }
+        else
+        {
+            star--;
+            space = space +2;
+        }
+
+
+        //end of line
+        cout << endl;
+    }
+}
+
+void pattern21( int n)
+{
+
+
+    //* * * * 
+    //*     *
+    //*     *
+    //* * * *
+
+    // outer loop runs n number of times.
+
+    for( int i=1; i<=n; i++)
+    {
+
+        //inner lOOP prints values in each loop
+
+        // i , star, space , star
+        // 1 , 
+        // 2 , 1, 2, 1
+        // 3 , 1, 2, 1
+        // 4 , 
+
+
+        //i==1 or n then print n stars
+        if ( i==1 || i==n)
+        {
+            //print n number of stars;
+            for ( int j=1; j<=n; j++)
+            {
+                cout << "* ";
+            }
+            //endline
+            cout << endl;
+            continue;
+
+        }
+
+       // star
+       cout << "* ";
+
+       //space
+       for ( int j=1; j<=n-2; j++)
+       {
+            cout << "  ";
+       }
+
+       // star
+       cout << "* ";
+
+       //endline
+       cout << endl;
+
+
+    }
+
+}
+
+void pattern22( int n)
+{
+
+
+    // 4       4 4 4 4 4    4 
+    // 4 3       3 3 3    3 4
+    // 4 3 2       2    2 3 4
+    // 4 3 2 1          2 3 4
+    // 4 3 2 2 2 3 4
+    // 4 3 3 3 3 3 4
+    // 4 4 4 4 4 4 4 
+
+
+    // 4 
+    // 4 3 
+    // 4 3 2 
+    // 4 3 2 1 
+    
+
+
+    //outer loop prints number of rows ie n 
+    for ( int i=1; i<=n ; i++)
+    {
+  
+        int value = n;
+
+        //print values in decending ordeer which alwas start from n
+        for ( int j=1; j<= i ; j++)
+        {
+            cout << value << " ";
+            value--;
+        }
+
+        //end of line
+        cout << endl;
+    }
+
+    cout << endl << endl << endl;
+
+    // 4 
+    // 4 3 
+    // 4 3 2 
+    // 4 3 2 1 
+
+    // 2nd half the i increases but nubers printed is decreasing
+    // 4 3 2 
+    // 4 3 
+    // 4 
+    
+    int numberOfPrintsInEachRow = 1;
+
+    //outer loop prints number of rows ie 2n-1
+    for ( int i=1; i<= 2*n-1 ; i++)
+    {
+  
+        int value = n;
+
+        //print values in decending ordeer which alwas start from n
+        for ( int j=1; j<= numberOfPrintsInEachRow ; j++)
+        {
+            cout << value << " ";
+            value--;
+        }
+
+        //
+        if ( i < n )
+        {
+            numberOfPrintsInEachRow++;
+        }
+        else
+        {
+            numberOfPrintsInEachRow--;
+        }
+        //end of line
+        cout << endl;
+    }
+
+    cout << endl << endl << endl;
+
+    // 4           4
+    // 4 3       3 4
+    // 4 3 2   2 3 4
+    // 4 3 2 1 2 3 4
+
+    // 2nd half the i increases but nubers printed is decreasing
+    // 4 3 2 
+    // 4 3 
+    // 4 
+    
+    numberOfPrintsInEachRow = 1;
+
+    int space = 2*n-3;
+
+    //outer loop prints number of rows ie 2n-1
+    for ( int i=1; i<= 2*n-1 ; i++)
+    {
+  
+        int valueD = n;
+
+        //numbers
+        //print values in decending order starting from n.
+        for ( int j=1; j<= numberOfPrintsInEachRow ; j++)
+        {
+            cout << valueD << " ";
+            valueD--;
+        }
+
+        //spaces
+        //i , space
+
+        for ( int j=1; j<= space; j++)
+        {
+            cout << "* " ;
+        }
+        
+
+
+
+        int valueI = n-i+1;
+        //numbers
+        //print values in decending order starting from n.
+        for ( int j=1; j<= numberOfPrintsInEachRow ; j++)
+        {
+            cout << valueI << " ";
+            valueI++;
+        }
+
+
+        //
+        if ( i < n )
+        {
+            numberOfPrintsInEachRow++;
+
+            if ( space == 1 ) 
+            {
+                space = 0;
+            }
+            else 
+            {
+                space = space - 2;
+            }
+                
+
+        }
+        else
+        {
+            numberOfPrintsInEachRow--;
+            if ( space == 1 ) 
+            {
+                space = 0;
+            }
+            else 
+            {
+                space = space + 2;
+            }
+        }
+        //end of line
+        cout << endl;
+    }
+
+}
 int main()
 {
-    pattern1(3);
-    cout<<endl;
+    // pattern1(3);
+    // cout<<endl;
 
-    pattern2(3);
-    cout << endl;
+    // pattern2(3);
+    // cout << endl;
 
-    pattern3(3);
-    cout << endl;
+    // pattern3(3);
+    // cout << endl;
 
-    pattern4(4);
-    cout << endl;
+    // pattern4(4);
+    // cout << endl;
 
-    pattern5(4);
-    cout << endl;
+    // pattern5(4);
+    // cout << endl;
 
-    pattern6(4);
-    cout << endl;
+    // pattern6(4);
+    // cout << endl;
 
-    pattern7MyUnderstanding(3);
-    cout << endl;
+    // pattern7MyUnderstanding(3);
+    // cout << endl;
 
-    pattern7(3);
-    cout << endl;
+    // pattern7(3);
+    // cout << endl;
 
-    pattern8(3);
-    cout << endl;
+    // pattern8(3);
+    // cout << endl;
 
-    pattern9(3);
-    cout << endl;
+    // pattern9(3);
+    // cout << endl;
 
-    pattern10(3);
-    cout  << endl;
+    // pattern10(3);
+    // cout  << endl;
 
-    pattern11(3);
-    cout << endl;
+    // pattern11(3);
+    // cout << endl;
 
-    pattern12(3);
-    cout << endl;
+    // pattern12(3);
+    // cout << endl;
 
-    pattern13(3);
-    cout << endl;
+    // pattern13(3);
+    // cout << endl;
 
-    pattern14(3);
-    cout << endl;
+    // pattern14(3);
+    // cout << endl;
 
-    pattern15(3);
-    cout << endl;
+    // pattern15(3);
+    // cout << endl;
 
-    pattern16(3);
-    cout << endl;
+    // pattern16(3);
+    // cout << endl;
 
 
-    pattern17(3);
+    // pattern17(3);
+    // cout << endl;
+
+    // pattern18(3);
+    // cout << endl;
+
+    // pattern19(3);
+    // cout << endl;
+
+    // pattern20(3);
+    // cout << endl;
+
+    // pattern21(4);
+    // cout << endl;
+
+    pattern22(4);
     cout << endl;
 
 
