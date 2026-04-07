@@ -800,154 +800,104 @@ void pattern22( int n)
     // // 4 4 4 4 4 4 4 
 
 
-    // // 4 
-    // // 4 3 
-    // // 4 3 2 
-    // // 4 3 2 1 
-    
-
-
-    // //outer loop prints number of rows ie n 
-    // for ( int i=1; i<=n ; i++)
-    // {
-  
-    //     int value = n;
-
-    //     //print values in decending ordeer which alwas start from n
-    //     for ( int j=1; j<= i ; j++)
-    //     {
-    //         cout << value << " ";
-    //         value--;
-    //     }
-
-    //     //end of line
-    //     cout << endl;
-    // }
-
-    // cout << endl << endl << endl;
-
-    // // 4 
-    // // 4 3 
-    // // 4 3 2 
-    // // 4 3 2 1 
-
-    // // 2nd half the i increases but nubers printed is decreasing
-    // // 4 3 2 
-    // // 4 3 
-    // // 4 
-    
-    // int numberOfPrintsInEachRow = 1;
-
-    // //outer loop prints number of rows ie 2n-1
-    // for ( int i=1; i<= 2*n-1 ; i++)
-    // {
-  
-    //     int value = n;
-
-    //     //print values in decending ordeer which alwas start from n
-    //     for ( int j=1; j<= numberOfPrintsInEachRow ; j++)
-    //     {
-    //         cout << value << " ";
-    //         value--;
-    //     }
-
-    //     //
-    //     if ( i < n )
-    //     {
-    //         numberOfPrintsInEachRow++;
-    //     }
-    //     else
-    //     {
-    //         numberOfPrintsInEachRow--;
-    //     }
-    //     //end of line
-    //     cout << endl;
-    // }
-
-    // cout << endl << endl << endl;
-
     // // 4           4
     // // 4 3       3 4
     // // 4 3 2   2 3 4
+
     // // 4 3 2 1 2 3 4
 
-    // // 2nd half the i increases but nubers printed is decreasing
-    // // 4 3 2 
-    // // 4 3 
-    // // 4 
-    
-    int number = 1;
-    int space = 2*n-3; //5
+    // // 4 3 2
+    // // 4 3
+    // // 4
 
-    //outer loop prints number of rows ie 2n-1
-    for ( int i=1; i<= 2*n-1 ; i++) //i=4, 4<=7
+
+
+    // outer loop runs nuns 2n-1 timess
+
+    int number = 1; //i=2, i=4, ,i=5., n=4
+    int space = 2*n-3; // 5
+    for( int i=1; i<= 2*n -1; i++) // i = [1,7]
     {
-        
-
         // 4 3 2 1 2 3 4
-        if( i == n) // 4==4
-        {
-            // 4 3 2 1 
-            for ( int j=n; j>=1; j--) //j=4, j>=1
+        if ( i==n)
+        {   
+
+            int value = n; //value = 4
+            for ( int j=1; j<=n; j++) // 4 times
             {
-                cout << j << " ";
+                cout << value << " "; //4 3 2 1
+                value--; //0
+            }
+            value = 2; 
+            for ( int j=1; j<=n-1; j++) // 3 times
+            {
+                cout << value << " "; //2 3 4
+                value++; //5
             }
 
-            //2 3 4
-            for ( int j=2; j<=n; j++)
-            {
-                cout << j << " ";
-            }
-   
-        }
-        else
-        {
-            int valueD = n;
-
-            //numbers
-            //4 3 2 * 2 3 4
-            //4 3 2 
-            for ( int j=1; j<= number ; j++)
-            {
-                cout << valueD << " ";
-                valueD--;
-            }
-
-            //spaces
-            for ( int j=1; j<= space; j++)
-            {
-                cout << n-number+1 << " "  ;
-            }
+            number--; //number =2
+            space = space+2; //space = 3
             
-            int valueI = n-number+1;
-            //numbers
-            //print values in decending order starting from n.
-            for ( int j=1; j<= number ; j++)
-            {
-                cout << valueI << " ";
-                valueI++;
-            }
-
-        }
-        
-
-        //
-        if ( i < n )
-        {
-            number++; 
-            space = space - 2;
+            cout << endl;
 
         }
         else
         {
-            number--; //3
-            space = space + 2;
+            //first half
+            // 4           4
+            // 4 3       3 4
+            // 4 3 2   2 3 4
+
+
+            int valueBegin = n; //4
+            // print number
+            for ( int j=1; j<=number; j++) //number =3
+            {
+                cout << valueBegin << " "; //4 3 2 
+                valueBegin--;//1
+            }
+
+            int valueSpace = n-number+1;
+            // print space
+            for ( int j=1; j<=space; j++) //space =1
+            {
+                cout << valueSpace<< " "; //2
+            }
+
+
+            // print number
+            int valueEnd = n-number+1; //
+            
+            for ( int j=1; j<=number; j++) //numner =3
+            {
+                cout << valueEnd << " "; //3 4 
+                valueEnd++;
+            }
+
+            // // 4 3 2   2 3 4
+            // // 4 3       3 4
+            // // 4           4 
+
+            if( i < n)
+            {
+                number++; //number =3
+                space = space-2;// space =1
+            }
+            else
+            {
+                number--; //number =2
+                space = space +2; //space = 3
+            }
+
+            // endl line
+            cout << endl;
 
 
         }
-        //end of line
-        cout << endl;
+
+        
     }
+    
 
 }
 int main()
