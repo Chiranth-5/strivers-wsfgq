@@ -32,8 +32,9 @@ int main()
 
 
     cout << "7.Hcf of the number ";
-    int hcf = obj.highestCommonFactor(5, 16);
+    int hcf = obj.highestCommonFactor(5, 15);
     cout << hcf << endl;
+
 
 
 

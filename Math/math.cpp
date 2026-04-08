@@ -210,11 +210,18 @@ int Math::highestCommonFactor( int n, int m)
 
     int hcf=1;
 
-    for( int i=1; i<=minN; i++)// 1<=5
+    // why dont we traverse from the minN till 1 .
+    // i can break as sooon as i get a value in hcf.
+    // my time complexity remains same but i can save some performace.
+
+    //eucladian formula
+
+    for( int i=minN; i>=1; i--)// 1<=5
     {
-        if( minN%i == 0)
+        if( n%i == 0 && m%i==0)
         {
             hcf = i;
+            break;
         }
     }
 
