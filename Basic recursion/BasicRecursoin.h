@@ -1,64 +1,4 @@
-// Understand recursion by print something N times
-// ---
-// Editorial	
-// PostLink
-// YouTube
-// ---
-// Add Note
-// Easy
-	
-// Print name N times using recursion
-// ---
-// Editorial	
-// PostLink
-// YouTube
-// ---
-// Add Note
-// Easy
-	
-// Print 1 to N using Recursion
-// Solve	Editorial	
-// PostLink
-// YouTube
-// ---
-// Add Note
-// Easy
-	
-// Print N to 1 using Recursion
-// Solve	Editorial	
-// PostLink
-// YouTube
-// ---
-// Add Note
-// Easy
-	
-// Sum of First N Numbers
-// Solve	Editorial	
-// PostLink
-// YouTube
-// ---
-// Add Note
-// Easy
-	
-// Factorial of a given number
-// Solve	Editorial	
-// PostLink
-// YouTube
-// ---
-// Add Note
-// Easy
-	
-// Reverse an array
-// Solve	Editorial	
-// PostLink
-// YouTube
-// ---
-// Add Note
-// Easy
-	
 
-	
-// Fibonacci Number
 
 #include <iostream>
 using namespace std;
@@ -66,9 +6,13 @@ using namespace std;
 class BasicRecursion
 {
     private:
+        
 
     public:
-    ;
+        
+        
+        string ansRev="";
+        
         void understandRecursion( );
 
         
@@ -78,10 +22,25 @@ class BasicRecursion
         //forward recursion
         void oneToNForward(int count, int n);
 
+        //backward recursion
         void backwardRecursion(string name, int count , int n);
+        void NToOneBackward( int count, int n);
+
+        // sum of firsnt n numbers using forward redursion
+        int sumOffirstNNumbers(int count , int n);
 
 
+        // Factorial of a given number
+        int factorialOfGivenNumber( int count, int n);
+
+        //reverse an array
+        bool revAnArray( int count , int n , string rev);
 
 
+        // Fibonacci Number
+        int fibonacciNumber( int count , int n);
+
+        // Fibonacci Number-2
+        int fibonacciNumber2(int n);
 };
 
