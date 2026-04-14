@@ -1,5 +1,7 @@
 
 
+
+
 #include <iostream>
 using namespace std;
 
@@ -13,7 +15,7 @@ class BasicRecursion
         
         string ansRev="";
         
-        void understandRecursion( );
+        int BS( int A[], int i , int j , int x);
 
         
         // Print name N times using recursion

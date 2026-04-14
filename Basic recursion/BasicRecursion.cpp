@@ -1,27 +1,27 @@
 #include"BasicRecursoin.h"
+//name = dhyan;
+//count =0;
+//n =3;
 
-void BasicRecursion::recursionPrintName( string name , int count , int n)
+//dyan  dyan dyan
+
+void BasicRecursion::recursionPrintName( string name , int count , int n) // dyan, 0, 3
 {
     // name = name to be printed.
     // count = current call.
     // n = total number of calls.
 
-    // chiranth
-    // 1
-    // 4
-
-    //base case
-    if( count == n)
+    // base condition
+    if( n== count)
     {
         return;
     }
 
-    // print name
-    cout << name << " ";
-    //print count
-    count++;
-    //call again
-    recursionPrintName( name, count, n);
+    count = count+1; // 1
+
+    cout << name << " "; // dhyan 
+
+    recursionPrintName(name, count , n); // dhyan, 1, 3
 
 }
 
@@ -296,4 +296,44 @@ int BasicRecursion::fibonacciNumber2( int n)
     
 
 }
+
+//
+int BasicRecursion::BS( int A[], int i , int j , int x)
+{   // x= 40
+
+    // A =10   20   30     40     50 
+    //     i        mid            j
+    //     i    j 
+
+
+    // i = 0
+    // j = 4
+    // x= 20
+
+    //required = 1;
+
+    // finding middle idex
+    int mid = (i+j)/2;
+
+    // if i find my value at the middel then return that idex and finish my program( base case)
+    if(A[mid] == x) // 30>20
+    {
+        return mid;
+    }
+
+    if( A[mid]> x)
+    {
+        BS(A , i, mid-1, x);
+    }
+
+    else
+    {
+        BS(A,mid+1, j , x);
+    }
+
+
+
+}
+
+
 
