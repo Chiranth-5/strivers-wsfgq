@@ -34,9 +34,21 @@ class Sort
     public:
 
         void display( vector<int>A);
+        void swap( int& a, int& b);
         
         void selectionSort(vector<int>A);
-        void bubbleSort( vector<int>A);
+        void bubbleSort(vector<int>A);
+        void insertionSort( vector<int>A);
+
+
+        void merge( vector<int>& A, int startofFirstSortedHalf, int eOFSH , int startofSecondSortedHalf , int eOSH);
+        void mergeSort( vector<int>& A, int start, int end);
+
+
+        void recursiveBubbleSort(vector<int>A, int numberOfremaningCalls);
+        void recursiveInsertionSort(vector<int>A, int numberOfremaningCalls);
+
+        void quickSort( vector<int>A );
 
 
 };
