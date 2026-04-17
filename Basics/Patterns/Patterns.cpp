@@ -1,10 +1,10 @@
-#include<iostream>
+#include "Patterns.h"
 using namespace std;
 // Patterns
 
 
 
-void pattern1(int n) 
+void Patterns::pattern1(int n)
 {   
     //1 .
     // * * * *
@@ -18,7 +18,7 @@ void pattern1(int n)
     }
 }
 
-void pattern2(int n)
+void Patterns::pattern2(int n)
 {
     //*
     //* *
@@ -36,7 +36,7 @@ void pattern2(int n)
     }
 }
 
-void pattern3(int n)
+void Patterns::pattern3(int n)
 {
     //1
     //1 2
@@ -53,7 +53,7 @@ void pattern3(int n)
     }
 }
 
-void pattern4( int n )
+void Patterns::pattern4( int n )
 {
     //1
     //2 2
@@ -70,7 +70,7 @@ void pattern4( int n )
     }
 }
 
-void pattern5( int n)
+void Patterns::pattern5( int n)
 {
     //* * *
     //* *
@@ -86,7 +86,7 @@ void pattern5( int n)
     }
 }
 
-void pattern6( int n)
+void Patterns::pattern6( int n)
 {
     //1 2 3
     //1 2 
@@ -102,7 +102,7 @@ void pattern6( int n)
    }
 }
 
-void pattern7MyUnderstanding( int n)
+void Patterns::pattern7MyUnderstanding( int n)
 {
     //*
     //* * *
@@ -123,7 +123,7 @@ void pattern7MyUnderstanding( int n)
     
 }
 
-void pattern7( int n)
+void Patterns::pattern7( int n)
 {
     //    *         [2, 1, 2]
     //  * * *       [1, 3, 1]
@@ -162,7 +162,7 @@ void pattern7( int n)
     
 }
 
-void pattern8( int n)
+void Patterns::pattern8( int n)
 {
     //* * * * *     [0, 5, 0]
     //  * * *       [1, 3, 1]
@@ -198,7 +198,7 @@ void pattern8( int n)
 
 }
 
-void pattern9( int n)
+void Patterns::pattern9( int n)
 {
     // 3
     //    *         [2, 1, 2]
@@ -271,7 +271,7 @@ void pattern9( int n)
 
 }
 
-void pattern10( int n)
+void Patterns::pattern10( int n)
 {
     //*
     //* * 
@@ -331,7 +331,7 @@ void pattern10( int n)
     
 }
 
-void pattern11( int n)
+void Patterns::pattern11( int n)
 {
     //n=3
     //          [i, 1, 0 ]
@@ -357,7 +357,7 @@ void pattern11( int n)
     }
 }
 
-void pattern12(int n)
+void Patterns::pattern12(int n)
 {
     // 1             1
     // 1 2         2 1
@@ -394,7 +394,7 @@ void pattern12(int n)
 
 }
 
-void pattern13( int n)
+void Patterns::pattern13( int n)
 {
     // 1 
     // 2 3 
@@ -422,7 +422,7 @@ void pattern13( int n)
     }
 }
 
-void pattern14( int n)
+void Patterns::pattern14( int n)
 {
     // A 
     // A B  
@@ -450,7 +450,7 @@ void pattern14( int n)
 
 }
 
-void pattern15( int n)
+void Patterns::pattern15( int n)
 {
     // A B C 
     // A B  
@@ -481,7 +481,7 @@ void pattern15( int n)
     
 }
 
-void pattern16( int n)
+void Patterns::pattern16( int n)
 {
     // A 
     // B B  
@@ -512,7 +512,7 @@ void pattern16( int n)
     
 }
 
-void pattern17( int n)
+void Patterns::pattern17( int n)
 {
     //     A 
     //   A B A 
@@ -572,7 +572,7 @@ void pattern17( int n)
 
 }
 
-void pattern18( int n)
+void Patterns::pattern18( int n)
 {
     // C 
     // B C 
@@ -606,7 +606,7 @@ void pattern18( int n)
 
 }
 
-void pattern19( int n)
+void Patterns::pattern19( int n)
 {
     //* * * * * *
     //* *     * *
@@ -662,7 +662,7 @@ void pattern19( int n)
     }
 }
 
-void pattern20( int n)
+void Patterns::pattern20( int n)
 {
 
     //*         *
@@ -729,7 +729,7 @@ void pattern20( int n)
     }
 }
 
-void pattern21( int n)
+void Patterns::pattern21( int n)
 {
 
 
@@ -786,7 +786,7 @@ void pattern21( int n)
 
 }
 
-void pattern22( int n)
+void Patterns::pattern22( int n)
 {
 
 
@@ -901,77 +901,3 @@ void pattern22( int n)
 }
 
 
-int main()
-{
-    // pattern1(3);
-    // cout<<endl;
-
-    // pattern2(3);
-    // cout << endl;
-
-    // pattern3(3);
-    // cout << endl;
-
-    // pattern4(4);
-    // cout << endl;
-
-    // pattern5(4);
-    // cout << endl;
-
-    // pattern6(4);
-    // cout << endl;
-
-    // pattern7MyUnderstanding(3);
-    // cout << endl;
-
-    // pattern7(3);
-    // cout << endl;
-
-    // pattern8(3);
-    // cout << endl;
-
-    // pattern9(3);
-    // cout << endl;
-
-    // pattern10(3);
-    // cout  << endl;
-
-    // pattern11(3);
-    // cout << endl;
-
-    // pattern12(3);
-    // cout << endl;
-
-    // pattern13(3);
-    // cout << endl;
-
-    // pattern14(3);
-    // cout << endl;
-
-    // pattern15(3);
-    // cout << endl;
-
-    // pattern16(3);
-    // cout << endl;
-
-
-    // pattern17(3);
-    // cout << endl;
-
-    // pattern18(3);
-    // cout << endl;
-
-    // pattern19(3);
-    // cout << endl;
-
-    // pattern20(3);
-    // cout << endl;
-
-    // pattern21(4);
-    // cout << endl;
-
-    pattern22(4);
-    cout << endl;
-
-
-}

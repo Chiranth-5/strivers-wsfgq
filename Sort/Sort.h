@@ -48,8 +48,8 @@ class Sort
         void recursiveBubbleSort(vector<int>A, int numberOfremaningCalls);
         void recursiveInsertionSort(vector<int>A, int numberOfremaningCalls);
 
-        void partitioning(vector <int>A, int pivot);
-        void quickSort( vector<int>A );
+        int partitioning( vector<int>& A, int low, int high);
+        void quickSort( vector<int>& A, int low, int high );
 
 
 };

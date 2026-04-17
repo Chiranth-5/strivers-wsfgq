@@ -215,7 +215,7 @@ void Sort::recursiveInsertionSort(vector<int>A, int numberOfremaningCalls)
 }
 
 
-void partitioning( vector<int>A , int pivot)
+int Sort::partitioning( vector<int>& A, int low, int high)
 {
     // pivot element must be placed in correct postion.
     // while finding the pivot postion swap values greater than pivot in the left with values less than the pivot on the right.
@@ -224,38 +224,56 @@ void partitioning( vector<int>A , int pivot)
     // 0 1 2 3 4 5 6
     // i           j
 
-    int i=0;
-    int j=A.size()-1;
+    // we assume we will always keep the first element in the given array into its corect location.
+    int pivot = low;
+    int i=low;
+    int j=high;
 
     // pivot be 4
 
     while(i<j)
     {
         // move i as its in correct side
-        while(A[i]<pivot)
+        while(A[i]<=A[pivot])
         {
             i++;
         }
 
-        while(A[j]>pivot)
+        while(A[j]>A[pivot])
         {
             j++;
         }
 
-        if( i<j)
+        if(i<j)
         {
             swap( A[i],A[j]);
         }
 
     }
-  
 
+    swap( A[pivot], A[i]);
+  
+    return low;
     // check either side of the array and swap if the value of left is greater than the value at the middle index
 
 }
 
-void Sort::quickSort( vector<int>A )
+void Sort::quickSort( vector<int>&A, int low,int high )
 {
     // partition each
+    
+    if( low < high)
+    {
+        int partition = partitioning(A, low, high);
+
+        quickSort( A, low, partition-1);
+        quickSort( A, partition+1, high);
+
+    }
+
+    cout << "Values after  quicksort sort " ;
+    display(A);
+    cout << endl << endl;
+    
 }
 

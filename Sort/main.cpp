@@ -36,5 +36,11 @@ int main()
     obj.display(A);
     cout << endl << endl;
 
+
+    cout << "Values before Quicksort sort " ;
+    obj.display(A);
+    cout << endl;
+    obj.quickSort(A,0,4);
+
     
 }
