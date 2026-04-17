@@ -1,6 +1,5 @@
 #include<iostream>
 using namespace std;
-
 // Patterns
 
 
@@ -900,6 +899,8 @@ void pattern22( int n)
     
 
 }
+
+
 int main()
 {
     // pattern1(3);

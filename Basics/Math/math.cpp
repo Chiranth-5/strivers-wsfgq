@@ -60,9 +60,6 @@ bool Math::palindrome( int n)
 
 }
 
-
-
-
 //4. Check if number is armstrong
 bool Math::amrStrongNumber( int n )
 {   
@@ -91,7 +88,6 @@ bool Math::amrStrongNumber( int n )
     return false;
 
 }
-
 
 //5. Print all divisors
 void Math::printDivisors( int n)

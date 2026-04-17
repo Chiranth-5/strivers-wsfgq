@@ -217,5 +217,6 @@ void Sort::recursiveInsertionSort(vector<int>A, int numberOfremaningCalls)
 
 void Sort::quickSort( vector<int>A )
 {
-    //
+    // partition each
 }
+
