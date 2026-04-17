@@ -215,6 +215,45 @@ void Sort::recursiveInsertionSort(vector<int>A, int numberOfremaningCalls)
 }
 
 
+void partitioning( vector<int>A , int pivot)
+{
+    // pivot element must be placed in correct postion.
+    // while finding the pivot postion swap values greater than pivot in the left with values less than the pivot on the right.
+
+    // 4 3 5 2 6 8 1
+    // 0 1 2 3 4 5 6
+    // i           j
+
+    int i=0;
+    int j=A.size()-1;
+
+    // pivot be 4
+
+    while(i<j)
+    {
+        // move i as its in correct side
+        while(A[i]<pivot)
+        {
+            i++;
+        }
+
+        while(A[j]>pivot)
+        {
+            j++;
+        }
+
+        if( i<j)
+        {
+            swap( A[i],A[j]);
+        }
+
+    }
+  
+
+    // check either side of the array and swap if the value of left is greater than the value at the middle index
+
+}
+
 void Sort::quickSort( vector<int>A )
 {
     // partition each
