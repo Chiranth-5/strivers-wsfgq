@@ -4,6 +4,7 @@ using namespace std;
 
 void Hash::display(vector<int> A)
 {
+    cout << "All the values of give vector :" << endl;
     for( int i=0; i<A.size(); i++)
     {
         cout << A[i] <<" " ;
@@ -13,11 +14,14 @@ void Hash::display(vector<int> A)
 
 void Hash::display(map<int,int> A)
 {
-    for( int i=0; i<A.size(); i++)
+    //if no key of 0 fund then the entry will be added and then displayes.
+    // So use itrator to access {key, value} pair.
+
+    for( auto it = A.begin(); it != A.end(); it++)
     {
-        cout << A[i] <<" " ;
+        cout << it->first << " " << it->second <<endl;
     }
-    cout << endl;
+
 }
 
 void Hash::vectorHashFrequency(vector<int>A)
@@ -85,42 +89,25 @@ void Hash::vectorHashFrequency(vector<int>A)
     display(hashVector);
 
 
+}
+
+void Hash::mapHashFrequency( vector<int> A)
+{
     //3.We can use map datastructure to effectively improve the space 
     // key value system
 
     map<int,int> hashMap;
 
-    for( int i=0; i<n; i++)
+    for( int i=0; i<A.size(); i++)
     {
         // if no value is present it will add 0 and increase it by default.
         hashMap[A[i]]++;
     }
 
-    cout << " The frequency of all the values in the vector A = : " ;
+    cout << "The frequency of all the values in the Given vector = : " << endl; ;
     display(hashMap);
 
 
-
-    // int n;
-    // cin >> n;
-    // int arr[n];
-    // for (int i = 0; i < n; i++) {
-    //     cin >> arr[i];
-    // }
-
-    // //precompute:
-    // int hash[13] = {0};
-    // for (int i = 0; i < n; i++) {
-    //     hash[arr[i]] += 1;
-    // }
-
-    // int q;
-    // cin >> q;
-    // while (q--) {
-    //     int number;
-    //     cin >> number;
-    //     // fetching:
-    //     cout << hash[number] << endl;
-    // }
-
 }
+
+

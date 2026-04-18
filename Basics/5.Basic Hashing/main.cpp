@@ -8,6 +8,8 @@ int main()
     Hash obj;
     obj.display(A);
 
-    obj.vectorHashFrequency(A);
+    // obj.vectorHashFrequency(A);
+
+    obj.mapHashFrequency(A);
     
 }

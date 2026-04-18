@@ -2,12 +2,15 @@
 #include <list>
 #include <algorithm>
 #include <iostream>
+#include <map>
+#include <iterator>
 using namespace std;
 
 class Stl
 {
     public:
         void displayVector( vector<int> v);
+        void displayMap( map<int,int> mp);
 
         void pairDatatype();
 

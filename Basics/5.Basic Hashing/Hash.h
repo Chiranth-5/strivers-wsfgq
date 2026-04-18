@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <map>
 using namespace std;
 
 class Hash
@@ -10,6 +11,6 @@ class Hash
 
         void vectorHashFrequency(vector<int>A);
         void stringHashFrequency();
-        void mapHashFrequency();
+        void mapHashFrequency(vector<int> A);
         
 };

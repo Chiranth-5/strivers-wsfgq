@@ -20,6 +20,18 @@ void Stl::displayVector( vector<int> v)
     cout << endl;
 }
 
+void Stl::displayMap( std::map<int,int> mp)
+{
+    // 1,3
+    // 2,2
+
+    // key value
+    for (auto it = mp.begin(); it != mp.end(); it++)
+    {
+        cout << it->second << " ";
+    }
+}
+
 void Stl::vectorContainer()
 {
     //single linkedlist
@@ -179,6 +191,46 @@ void Stl::UnorderedSet()
 
 void Stl::map()
 {
+    //how its implemented?
+    //redblack tree.
+    // ordered map
+    
+
+
+    //push_back(value)
+    //insert(location, value)
+    //pop_back()
+    //size()
+    //erase(location)
+    //erase( start, end) = range , [start,end)
+    //clear()
+    //empty()
+
+    //begin()
+    //end()
+
+    std::map<int,int> mpp;
+
+    mpp.insert({2, 2});
+    mpp[1] = 3;
+
+    displayMap(mpp);
+    cout << endl;
+
+    std::map<int,int>::iterator it = mpp.find(2);
+    cout << "Key value of find 2 :" << (*it).first << endl; // 2
+    cout << "Value of the key of find 2 :" << it->second << endl; // 2
+
+    auto it1 = mpp.lower_bound(2); // return lower bound to that element
+    cout << " Lower bound to 2 :" << it1->second <<  endl;
+    auto it2 = mpp.upper_bound(2); // returns iterator to upper bound to that element.if nothing then points to gost buffer that is 0 in this case.
+    cout << " Upper bound to 2 :" << it2->second <<  endl;
+
+    // erase
+    // swap
+    // empty
+    // size 
+    
 
 }
 
