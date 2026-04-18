@@ -142,40 +142,8 @@ void Stl::listContainer( )
 void Stl::deque()
 {
     std::deque<int> deq;
-    // similar to maps
+    // similar to vector
 
-
-}
-
-void Stl::stack()
-{
-    std::stack<int> st;
-
-    st.push(1);
-    st.push(2);
-    st.push(3);
-    st.push(4);
-    st.push(5);
-
-    st.top();
-    st.size();
-    st.empty();
-    st.pop();
-
-}
-
-void Stl::vectorContainer()
-{
-
-}
-
-void Stl::listContainer()
-{
-
-}
-
-void Stl::deque()
-{
 
 }
 
