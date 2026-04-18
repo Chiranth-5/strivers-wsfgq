@@ -2,6 +2,13 @@
 
 class Patterns
 {
+    // interview prep revision:
+
+    // start decending order.( stop as soon as u get the latest one or go the next , keep going and then return nback to the hard question.)
+
+    // 22 21 20 19 18  17 13 10 9 .stop.
+
+
     public:
         void pattern1(int n);
         void pattern2(int n);

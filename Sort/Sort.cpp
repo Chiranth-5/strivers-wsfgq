@@ -215,65 +215,71 @@ void Sort::recursiveInsertionSort(vector<int>A, int numberOfremaningCalls)
 }
 
 
-int Sort::partitioning( vector<int>& A, int low, int high)
+int Sort::partitioning(vector<int>& A, int low, int high) 
 {
+
     // pivot element must be placed in correct postion.
+    // we can consider any value as pivot but will consider first value as pivot.
+
     // while finding the pivot postion swap values greater than pivot in the left with values less than the pivot on the right.
 
     // 4 3 5 2 6 8 1
     // 0 1 2 3 4 5 6
     // i           j
 
-    // we assume we will always keep the first element in the given array into its corect location.
-    int pivot = low;
+    int pivot = A[low];
     int i=low;
     int j=high;
 
-    // pivot be 4
 
-    while(i<j)
+    // find posistion of pivot element.
+    while( i<j )
     {
-        // move i as its in correct side
-        while(A[i]<=A[pivot])
+        while( i<= high && A[i]<= pivot) // 4 3 5 2 6 8 1
         {
+            // move i as long as A[i]<= pivot
             i++;
         }
 
-        while(A[j]>A[pivot])
+        while( j>= low && A[j]>pivot ) // 10 1 2 3 . 
         {
-            j++;
+
+            // move j( no need to swap)
+            j--;
+
         }
 
-        if(i<j)
+        // wrong side of the partition so need to swap
+        if( i<j) // if i is passed then the j value has to be swaped with the low value.
         {
             swap( A[i],A[j]);
         }
 
     }
 
-    swap( A[pivot], A[i]);
-  
-    return low;
-    // check either side of the array and swap if the value of left is greater than the value at the middle index
+    // swap this with j. As i has crossed the pivot position value.
+    swap( A[low], A[j]);
+
+    // correct posistion of the pivot.
+    return j;
 
 }
 
-void Sort::quickSort( vector<int>&A, int low,int high )
-{
-    // partition each
-    
-    if( low < high)
-    {
-        int partition = partitioning(A, low, high);
 
-        quickSort( A, low, partition-1);
-        quickSort( A, partition+1, high);
+void Sort::quickSort(vector<int>& A, int low, int high) 
+{
+    // more than 1 element then it needs to be sorted on both the side
+    if(low<high)
+    {
+        // need to find the partition paosition. after placing the low value at the partition position.
+        int partition = partitioning( A, low, high);
+
+        // sort the left side of the partition and the right side of the partition
+        quickSort(A, low, partition-1);
+        quickSort(A, partition+1, high );
 
     }
 
-    cout << "Values after  quicksort sort " ;
-    display(A);
-    cout << endl << endl;
-    
 }
+
 

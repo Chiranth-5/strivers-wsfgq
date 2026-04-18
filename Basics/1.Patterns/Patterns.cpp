@@ -396,30 +396,28 @@ void Patterns::pattern12(int n)
 
 void Patterns::pattern13( int n)
 {
+    // n =4;
+
     // 1 
     // 2 3 
     // 4 5 6
     // 7 8 9 10
 
-    // outer loop runs  as many times as number of rows are present.
-    for ( int i=1; i<=n; i++ )
-    {
-        // i =1, number printeed = 1 (1)
-        // i =2 , number printed = 2 3 (2)
-        // i =3 , number printed = 4 5 6 (3)
+    int number=1;
 
-        //inner loop prints numbers
-        int start = 1;
-        for( int j=1; j<=i; j++)
+    //outer loop prints 4 row
+    for ( int i=1; i<=n ;i++)
+    {
+        //number of prints in each row are  1 , 2,3 ,4 ,n
+        
+        for( int j=i; j<=i; j++)
         {
-            cout << start << " ";
-            start++;
+            cout << number << " " << endl;
+            number++;
         }
 
-        //end the printing of j line
-        cout << endl;
-
     }
+
 }
 
 void Patterns::pattern14( int n)

@@ -17,6 +17,12 @@ class Math
 
     public:
 
+        //revision ( start decending order):
+        // 3. highest common factorial.
+        // 2. prime numbers
+        // 1. print divors.
+
+
         // access each digit .while, n%10
         int countDigits( int n);
 

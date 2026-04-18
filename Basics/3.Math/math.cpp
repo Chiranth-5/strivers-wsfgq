@@ -92,56 +92,40 @@ bool Math::amrStrongNumber( int n )
 //5. Print all divisors
 void Math::printDivisors( int n)
 {
-    // n =5
-    // 1 , 5
-    // n = 24
-    // 1, 2, 3, 4, 6, 8, 12
-    // 1 * 24
-    // 2 * 12
-    // 3 * 8
-    // 4 * 6
-    // numbers on the left will become more than number on right
-    // 6 * 4 
-    // 8 * 3
-    // 12 * 1
+
+
+    //n=5
+    //1,5 are the divisors of 5
+
+    // n = 8 
+    // 1,2,4,8 are the divisors
+
+    //check all the numbers from 1 to n which are divisable frfom 8.
     
-    // n = 24
-    // 1, 2, 3, 4, 6, 8, 12
+    //but if 1 is divisable then 8 is also diviabale 
+    //similarly 2 and 4
 
-    // n = 36
-    // Square root of 36 is 6.
-    // We only need to check numbers from 1 to 6.
+    //6*6 = 36
 
-    // 1 * 36 = 36
-    // 2 * 18 = 36
-    // 3 * 12 = 36
-    // 4 * 9  = 36
-    // 6 * 6  = 36  <-- Square Root (The "Mirror" Point)
+    //so always check till the sure root of n and take both values as diviable.
 
-    // --- After this point, the factors just swap places ---
-
-    // 9  * 4  = 36  (Already found 4 and 9)
-    // 12 * 3  = 36  (Already found 3 and 12)
-    // 18 * 2  = 36  (Already found 2 and 18)
-    // 36 * 1  = 36  (Already found 1 and 36)
-
-    // Divisors: 1, 2, 3, 4, 6, 9, 12, 18, 36
+    vector<int> divisor;
     
-
-
-
-    // all the numbers from 1 till n have to be checked if its dividsble by n
-    // all the numbers till half of Sqaure root of n must be cheacked to see if its divisible by it.
-
-
-
-    // loop thru each from 1 to n/2
-    for ( int i=0; i*i<=n; i++)
+    for( int i=1; i*i<=n; i++)
     {
-        if( n%i == 0)
+        if( (n%i ==0))
         {
-            cout << i << " " << n/i << " ";
+            divisor.push_back(i);
+            divisor.push_back(n/i);
         }
+    }
+
+    sort( divisor.begin(), divisor.end());
+
+
+    for ( int i=0; i<divisor.size(); i++)
+    {
+        cout << divisor[i] << " ";
     }
 
 }
@@ -149,39 +133,34 @@ void Math::printDivisors( int n)
 //6. Check prime numbers
 bool Math::primeNumber( int n)
 {
-    //n = 5
-    // true
-    // n = 8
-    // false
+    
+    // prime numbers are all the numbers that are divisiable by 1 and n
+    // divisor is are just 1 and n.
 
-    // print all divisors .
-
-    //n=5
-    // 1 ,5
-    // if its just 1 and itself then its a prime number.
-
-    int single=0;
-    // loop thru each from 1 to n/2
-    for ( int i=1; i*i<=n; i++) 
+    int count =0;
+    for( int i=1; i*i <=n ; i++) // check till root of n 
     {
+       
+        //check the divisors
         if( n%i == 0)
         {
-            single = i;
+            //only 1 or n should be allowed or else its not prime.
+            // runs only one as we are checking till root of n.
+            count++;
         }
     }
+    if( count >1) return false;
 
-    if( single == 1)
-    {
-        return true;
-    }
-
-    return false;
+    return true;
 
 }
 
 //7. GCD of two numbers
 int Math::highestCommonFactor( int n, int m)
 {
+
+
+
     // n=6, m=4
     // n = 1, 2, 3, 6
     // m = 1, 2, 4
@@ -197,30 +176,19 @@ int Math::highestCommonFactor( int n, int m)
     // m = 1, 2, 4, 8, 16
     // highest common factor is 4
 
-    // find all the divisors of each number
-    // the maximum common divisrs in it will be the solution
+    // algo
+    // find common divior of the both.
+    // while doing that keep track of the largest one.
+    // now we dont check till the bigger number we can just check till the smallest number.
 
-    // check till half of the minimum number
-
-    int minN = min(n,m); // 5, 10
-
-    int hcf=1;
-
-    // why dont we traverse from the minN till 1 .
-    // i can break as sooon as i get a value in hcf.
-    // my time complexity remains same but i can save some performace.
-
-    //eucladian formula
-
-    for( int i=minN; i>=1; i--)// 1<=5
+    int gcd=1;
+    for( int i=1; i*i <= min( n, m); i++)
     {
-        if( n%i == 0 && m%i==0)
+        if( n%i == 0 && m%i == 0)
         {
-            hcf = i;
-            break;
+            gcd = n/i; // gretest will n/i as we are going till sqaureroot of n.
         }
     }
 
-
-    return hcf;
+    return gcd;
 }
