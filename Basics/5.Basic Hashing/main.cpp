@@ -8,8 +8,23 @@ int main()
     Hash obj;
     obj.display(A);
 
-    // obj.vectorHashFrequency(A);
+    obj.vectorHashFrequency(A);
 
     obj.mapHashFrequency(A);
+    cout << endl << endl;
+
+
+    string B = "abbabacdef";
+
+    obj.display(B);
+
+    obj.stringHashFrequency(B);
+    cout << endl << endl;
+
+    obj.display(A);
+    obj.maxAndMinFrequency(A);
+
+
+
     
 }
