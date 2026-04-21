@@ -55,19 +55,26 @@ void Patterns::pattern3(int n)
 
 void Patterns::pattern4( int n )
 {
+    //n =3
+
     //1
     //2 2
-    //3 3 3 
-    //4 4 4 4 
+    //3 3 3
 
-    for ( int i=1 ; i<=n ; i++)
+    //for loop to reach each row
+
+    for( int i=1; i<=n; i++)
     {
-        for( int j=1 ; j<=i; j++)
+        //1st row 1 item print
+        // 2nd 2 item print
+
+        for( int j=1; j<=i; j++)
         {
-            cout << i << " " ;
+            cout << i << " ";
         }
         cout << endl;
     }
+
 }
 
 void Patterns::pattern5( int n)
@@ -92,14 +99,7 @@ void Patterns::pattern6( int n)
     //1 2 
     //1
 
-   for( int i=n; i>0; i--)
-   {
-        for ( int j=1; j<=i; j++)
-        {
-            cout << j ;
-        }
-        cout << endl;
-   }
+
 }
 
 void Patterns::pattern7MyUnderstanding( int n)
@@ -107,58 +107,78 @@ void Patterns::pattern7MyUnderstanding( int n)
     //*
     //* * *
     //* * * * *
+    //* * * * * * *
 
-    // n number of rows
-    // 1 , 3 , 5, 7, 9: 2n-1 number elements are printed in each row.
 
-    for ( int i=1; i<=n ; i++)
+
+    // 1 1
+    // 2 3
+    // 3 5
+    
+    // n 2n-1
+
+    //*
+    //* * *
+
+    //rows
+    for( int i=1; i<=n; i++)
     {
-        int starPrint = ((2*i) -1);
-        for( int j=1; j<= starPrint; j++)
+        // 
+        for( int j=1; j<= (2*i) -1 ; j++)
         {
-            cout << "* ";
-        } 
+            cout << "* " ;
+        }
+        // ending each row
         cout << endl;
     }
+
+
+    
     
 }
 
 void Patterns::pattern7( int n)
 {
-    //    *         [2, 1, 2]
+    //n=3
+    //    *        [2, 1, 2]
     //  * * *       [1, 3, 1]
     //* * * * *     [0, 5, 0]
 
-    // n number of rows.   i  .  
-    
-    // total prints in each row :2n-1.  j 
-    // space print = n-i
-    // starprints  = 2i-1
+                    //  n-i   2i-1  n-i
 
+    //n=2
+    //  *         [1, 1, 1]
+    //* * *       [0, 3, 0]
 
-    for ( int i=1; i<=n ; i++)
+    for( int i=0; i<=n ;i++)
     {
-        
-        //space
-        for ( int j=1; j<=n-i; j++)
+
+
+        // space
+        for( int j=1; j<= n-i; j++)
         {
-            cout << "  ";
+            cout << " " ;
         }
 
-        //star
-        for ( int j=1 ; j<= (2*i-1); j++)
+        // star
+        for( int j=1; j<=(2*i)-1; j++)
         {
             cout << "* ";
         }
 
-        //space
-        for ( int j=1; j<=n-i; j++)
-        {
-            cout << "  ";
-        }
+        // //space
+        // for (int j=1; j<= n-i; j++)
+        // {
+        //     cout << " ";
+        // }
 
+        // ends the row
         cout << endl;
     }
+
+    
+
+
     
 }
 

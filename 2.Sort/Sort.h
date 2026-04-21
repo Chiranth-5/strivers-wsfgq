@@ -24,6 +24,14 @@
 // 6.Recursove insertion Sort
 // 7.Quick sort.
 
+//sorting completed:
+// 1. selection
+// 2. bubble
+// 3. insert
+// 4. merge
+// 5. quick
+
+
 #include <vector>
 #include <iostream>
 using namespace std;

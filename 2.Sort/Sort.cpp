@@ -20,13 +20,15 @@ void Sort::selectionSort(vector<int> A)
 {
     // 4 3 2 6 1
 
+    // 4 3 2 6 1
+    // i
+    // 1 3 2 6 4
+    // 1 2 3 6 4
+    
     // 2 arrays.
     // select the minimum_index value for that position.
     // swap at once.
 
-    // Not apative( wont change its speed if the array is already sorted)
-    
-    // This loop selects each position from 0.
     for ( int i=0; i<A.size(); i++)
     {
 
@@ -36,7 +38,7 @@ void Sort::selectionSort(vector<int> A)
         for ( int j=i+1; j< A.size(); j++)
         {
 
-            if( A[mini_index] > A[j])
+            if(  A[j] <A[mini_index])
             {
                 mini_index =j;
             }
@@ -46,9 +48,10 @@ void Sort::selectionSort(vector<int> A)
         int temp = A[mini_index];
         A[mini_index] = A[i];
         A[i] = temp;
+
     }
 
-    
+
     cout << "Values after selection sort " ;
     display(A);
     cout << endl << endl;
