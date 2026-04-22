@@ -259,3 +259,301 @@ void ArrayEasy::moveAllZerosToEnd( vector<int>& A)
 
 }
 
+vector<int> ArrayEasy::findUnion(vector<int> A, vector<int> B)
+{
+    // // A = 1 2 3
+    // // B = 2 3 4 5
+
+    // // ans = 1 2 3 4 5 
+
+    // //travesse thru arr1 and arr2
+    // // compare both the values 
+    // // 3 cases
+    // // 1. if its less then add it to ans and move i. now keep moving i if its still same as old.
+    // // 2. if its more then add it to ans and move j. now keep moving j if its still same as old.
+    // // now take care of remaning vlaues of each A and B.
+
+    // int i=0;
+    // int j=0;
+    // int n = A.size();
+    // int m = B.size();
+
+    // vector<int> ans;
+
+    // while ( i<n && j<m)
+    // {
+    //     if( A[i] == B[j] )
+    //     {
+    //         ans.push_back(A[i]);
+    //         i++;
+    //         j++;
+    //     }
+    //     else if( A[i] < B[j])
+    //     {
+    //         ans.push_back(A[i]);
+    //         i++;
+    //         // if values in A repeat it must be skipped
+
+    //         while( i<n && A[i] == A[i-1])
+    //         {
+    //             i++;
+    //         }
+    //     }
+    //     else
+    //     {
+    //         ans.push_back(B[j]);
+    //         j++;
+    //         // if values in A repeat it must be skipped
+
+    //         while( j<m && B[j] == B[j-1] )
+    //         {
+    //             j++;
+    //         }
+    //     }
+    // }
+
+    // while( i<n)
+    // {
+    //     //if the A is still remaning
+    //     ans.push_back(A[i]);
+    //     i++;
+    //     // if values in A repeat it must be skipped
+
+    //     while( i<n && A[i] == A[i-1])
+    //     {
+    //         i++;
+    //     }
+    // }
+
+    // while( j<m)
+    // {
+    //     //if the A is still remaning
+    //     ans.push_back(B[j]);
+    //     j++;
+    //     // if values in A repeat it must be skipped
+
+    //     while( j<m && B[j] == B[j-1] )
+    //     {
+    //         j++;
+    //     }
+    // }
+
+    // return ans;
+
+    // A = 1 2 3
+    // B = 2 3 4 5
+
+    // ans = 1 2 3 4 5 
+
+    //travesse thru arr1 and arr2
+    // compare both the values 
+    // 3 cases
+    // 1. if its less and check if its not the last value in ans then add. move i.
+    // 2. if its more and check if its not the last value in ans then add. move j.
+    // now take care of remaning vlaues of each A and B.
+
+    int i=0;
+    int j=0;
+    int n = A.size();
+    int m = B.size();
+    vector<int> ans;
+
+    while( i<n && j<m)
+    {
+        if( A[i] == B[j])
+        {
+
+            // add to ans if the ans does not have this value alreadu
+            if( ans.empty() || A[i] != ans.back())
+            {
+                ans.push_back(A[i]);
+            }
+            i++;
+            j++;
+        }
+        else if( A[i] < B[j] )
+        {
+
+            if( ans.empty() || A[i] != ans.back())
+            {
+                ans.push_back(A[i]);
+            }
+            i++;
+        }
+        else
+        {
+            if( ans.empty() || B[j] != ans.back())
+            {
+                ans.push_back(B[j]);
+            }
+            j++;
+        }
+    }
+
+    // remaning A values
+    while( i<n)
+    {
+        if( ans.empty() || A[i] != ans.back())
+        {
+            ans.push_back(A[i]);
+        }
+        i++;
+    }
+
+    // remaning j values
+    while( j<m)
+    {
+        if( ans.empty() || B[j] != ans.back())
+        {
+            ans.push_back(B[j]);
+        }
+        j++;
+    }
+
+    return ans;
+
+}
+
+int ArrayEasy::missingNum(vector<int>& A)
+{
+    // Input: arr[] = [8, 2, 4, 5, 3, 7, 1]
+    // Output: 6
+    // Explanation: All the numbers from 1 to 8 are present except 6.
+
+    // Input: arr[] = [1, 2, 3, 5]
+    // Output: 4
+    // Explanation: Here the size of the array is 4, so the range will be [1, 5]. The missing number between 1 to 5 is 4
+
+
+    // 1.sort the values in A
+    sort( A.begin(), A.end());
+
+    // 2.now check if the difference is grater than 
+    for( int i=1; i<A.size(); i++)
+    {
+        if( A[i] - A[i-1] >1 )
+        {
+            return A[i] -1;
+        }
+    }
+
+    return -1;
+
+    // sum of n numbers summation
+}
+
+int ArrayEasy::findMaxConsecutiveOnes(vector<int>& A)
+{
+    // Example 1:
+    // Input: prices = {1, 1, 0, 1, 1, 1}
+    // Output: 3
+    // Explanation: There are two consecutive 1’s and three consecutive 1’s in the array out of which maximum is 3.
+
+    // Example 2:
+    // Input: prices = {1, 0, 1, 1, 0, 1} 
+    // Output: 2
+    // Explanation: There are two consecutive 1's in the array. 
+
+    // two pointers
+    // traverse thru prices with i
+    // if there is 1 encountered then traverse with j and check if its the same value
+
+    int i=0;
+    int maxCount = 0;
+
+    while( i< A.size())
+    {
+        if( A[i] == 1)
+        {
+            int j = i+1;
+            int count = 1;
+            while( A[j] == 1)
+            {
+                count++;
+                j++;
+            }
+            i=j;
+            maxCount = max(maxCount,count);
+        }
+
+        i++;
+    }
+
+    return maxCount;
+
+}
+
+int ArrayEasy::getSingleElement(vector<int>& A)
+{
+    // Example 1:
+    // Input Format: arr[] = {2,2,1}
+    // Result: 1
+    // Explanation: In this array, only the element 1 appear once and so it is the answer.
+
+
+    // Example 2:
+    // Input Format: arr[] = {4,1,2,1,2}
+    // Result: 4
+    // Explanation: In this array, only element 4 appear once and the other elements appear twice. So, 4 is the answer.
+
+    // use map datastructure to store the frequency of each number in the vector.
+
+    std::map<int,int> mpF;
+
+    for( int i=0; i<A.size(); i++)
+    {
+        mpF[A[i]]++;
+    }
+    // use this hasmap value to find the frequnce 1
+
+    for ( auto it : mpF)
+    {
+        if( it.second == 1)
+        {
+            return it.first;
+        }
+    }
+
+    return -1;
+
+    // best method is using xor
+
+}
+
+int ArrayEasy::longestSubarray(vector<int>& A, int requiredSum)
+{
+    // Example 1:
+    // Input:
+    // nums = [10, 5, 2, 7, 1, 9], k = 15  
+    // Output:
+    // 4  
+
+    // i fixes start of an array
+    // j fixies end of an array
+    // k travese from i to j and calculates the sum
+
+    int n = A.size();
+    int maxCount =0;
+
+    for( int i=0; i<n; i++)
+    {
+        for ( int j=i; j<n; j++)
+        {
+            int sum =0;
+            int count =0;
+            for( int k =i; k<=j; k++)
+            {
+                sum += A[k];
+            }
+            if( sum == requiredSum)
+            {
+                count = j-i+1;
+            }
+
+            maxCount = max(count,maxCount);
+        }
+    }
+
+    return maxCount;
+
+}

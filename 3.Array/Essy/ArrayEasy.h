@@ -21,4 +21,14 @@ class ArrayEasy
 
         void moveAllZerosToEnd( vector<int>& A);
 
+        vector<int> findUnion(vector<int> A, vector<int> B);
+
+        int missingNum(vector<int>& A);
+
+        int findMaxConsecutiveOnes(vector<int> &nums);
+
+        int getSingleElement(vector<int>& arr);
+
+        int longestSubarray(vector<int> &nums, int k);
+
 };
