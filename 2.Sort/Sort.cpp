@@ -261,7 +261,7 @@ int Sort::partitioning(vector<int>& A, int low, int high)
     }
 
     // swap this with j. As i has crossed the pivot position value.
-    swap( A[low], A[j]);
+    swap( pivot, A[j]);
 
     // correct posistion of the pivot.
     return j;
