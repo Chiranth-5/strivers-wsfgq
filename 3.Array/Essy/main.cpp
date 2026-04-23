@@ -56,7 +56,7 @@ int main()
     // int getSingleElement = obj.getSingleElement(A);
     // cout << "Single Element from A : " << getSingleElement << endl; 
 
-    vector<int> A = {1,1,2,2,3};
+    vector<int> A = {1,2,3,1,1,1,1,4,2,3};
     int longestSubarray = obj.longestSubarray(A,3);
     cout << "longest Subarray from A : " << longestSubarray << endl;
 

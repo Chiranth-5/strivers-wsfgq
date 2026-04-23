@@ -528,32 +528,138 @@ int ArrayEasy::longestSubarray(vector<int>& A, int requiredSum)
     // Output:
     // 4  
 
-    // i fixes start of an array
-    // j fixies end of an array
-    // k travese from i to j and calculates the sum
+    // // method 1
+    // // i fixes start of an array
+    // // j fixies end of an array
+    // // k travese from i to j and calculates the sum
+    // // On3
+
+    // int n = A.size();
+    // int maxCount =0;
+
+    // for( int i=0; i<n; i++)
+    // {
+    //     for ( int j=i; j<n; j++)
+    //     {
+    //         int sum =0;
+    //         int count =0;
+    //         for( int k =i; k<=j; k++)
+    //         {
+    //             sum += A[k];
+    //         }
+    //         if( sum == requiredSum)
+    //         {
+    //             count = j-i+1;
+    //         }
+
+    //         maxCount = max(count,maxCount);
+    //     }
+    // }
+
+    // return maxCount;
+
+
+    // // method 2
+    // // i fixes start of an array
+    // // j fixies end of an array .while doing it already moves from i till the end.
+    // // On2
+
+    // int n = A.size();
+    // int maxCount =0;
+
+    // for( int i=0; i<n; i++)
+    // {
+    //     int sum =0;
+    //     int count =0;
+    //     for ( int j=i; j<n; j++)
+    //     {
+    //         sum += A[i];
+
+    //         if( sum == requiredSum)
+    //         {
+    //             count = j-i+1;
+    //         }
+
+    //         maxCount = max(count,maxCount);
+    //     }
+    // }
+
+    // return maxCount;
+
+    // method 3
+    // 1. while traversing keep calclauting the sum till there.
+    // 2. check if its same as the sum and 
+
+    // int n = A.size();
+    // int maxLen =0;
+    // int sum = 0;
+
+    // unordered_map<int,int> prefixSum ; // key , value ---> preSum , index_number
+
+    // for( int i=0; i<n; i++)
+    // {
+    //     sum += A[i];
+    //     if( sum == requiredSum)
+    //     {
+    //         maxLen = max( maxLen, i+1);
+    //     }
+
+    //     int rem = sum - requiredSum;
+    //     // if the remaning sum value is present before that means the reSum is present from that location till here.
+    //     if( prefixSum.find(rem) != prefixSum.end())
+    //     {
+    //         //found
+    //         // calclutle the new length fromt hat location
+
+    //         maxLen = max( maxLen, i-prefixSum[rem]);
+
+    //     }
+
+    //     // add only if the presum is not there.
+    //     if( prefixSum.find(sum) ==  prefixSum.end())
+    //     {
+    //         prefixSum[sum] = i;
+    //     }
+
+    // }
+
+    // return maxLen;
+
+
+
+    // method 4
+    // 1. take two pionters .
+    // move right one as long as the sum is less than the total required.
+    // if it crosses then stop it.
 
     int n = A.size();
-    int maxCount =0;
+    int maxLen =0;
+    int sum = 0;
 
-    for( int i=0; i<n; i++)
+    int i=0;
+    int j=0;
+
+    while( i<n )
     {
-        for ( int j=i; j<n; j++)
-        {
-            int sum =0;
-            int count =0;
-            for( int k =i; k<=j; k++)
-            {
-                sum += A[k];
-            }
-            if( sum == requiredSum)
-            {
-                count = j-i+1;
-            }
+        sum += A[i];
 
-            maxCount = max(count,maxCount);
+        while( sum > requiredSum)
+        {
+            sum = sum-A[j];
+            j++;
+        }
+        if( sum < requiredSum)
+        {
+            i++;
+        }
+        else
+        {
+            maxLen = max(maxLen,i-j+1);
+            i++;
         }
     }
 
-    return maxCount;
+    return maxLen;
+
 
 }
