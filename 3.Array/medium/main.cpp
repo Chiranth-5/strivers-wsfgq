@@ -22,7 +22,18 @@ int main()
     // int KadaneAlgorithmMaximum = obj.KadaneAlgorithm(A);
     // cout << "0s 1s and 2s : " << KadaneAlgorithmMaximum << endl;
 
-    vector<int> A = {7,1,5,3,6,4};
-    int stockbuySellProfit = obj.stockbuySell(A);
-    cout << "Maxprofit: " << stockbuySellProfit << endl;
+    // vector<int> A = {7,1,5,3,6,4};
+    // int stockbuySellProfit = obj.stockbuySell(A);
+    // cout << "Maxprofit: " << stockbuySellProfit << endl;
+
+    // vector<int> A = {7,1,-5,-3,-6,4};
+    // vector<int> rearrangeBySign = obj.rearrangeBySign(A);
+    // obj.display(rearrangeBySign);
+
+    vector<int> A = {2,1,5,4,3,0,0};
+    vector<int> nextPermutation = obj.nextPermutation(A);
+    obj.display(nextPermutation);
+
+    
+    
 }

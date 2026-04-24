@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <map>
 using namespace std;
 
@@ -16,5 +17,8 @@ class ArrayMedium
         int KadaneAlgorithm( vector<int> A);
 
         int stockbuySell(vector<int>& prices);
+
+        vector<int> rearrangeBySign(vector<int>& A);
+        vector<int> nextPermutation(vector<int>& A);
 
 };

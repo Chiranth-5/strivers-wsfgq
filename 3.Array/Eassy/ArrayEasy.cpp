@@ -454,32 +454,58 @@ int ArrayEasy::findMaxConsecutiveOnes(vector<int>& A)
     // Output: 2
     // Explanation: There are two consecutive 1's in the array. 
 
-    // two pointers
-    // traverse thru prices with i
-    // if there is 1 encountered then traverse with j and check if its the same value
+    // // two pointers
+    // // traverse thru prices with i
+    // // if there is 1 encountered then traverse with j and check if its the same value
 
-    int i=0;
-    int maxCount = 0;
+    //method 1:
+    // int i=0;
+    // int maxCount = 0;
 
-    while( i< A.size())
+    // while( i< A.size())
+    // {
+    //     if( A[i] == 1)
+    //     {
+    //         int j = i+1;
+    //         int count = 1;
+    //         while( A[j] == 1)
+    //         {
+    //             count++;
+    //             j++;
+    //         }
+    //         i=j;
+    //         maxCount = max(maxCount,count);
+    //     }
+
+    //     i++;
+    // }
+
+    // return maxCount;
+
+    //method 2
+    // traverse thru once
+    // add count if its 1 or reset cont to 0
+    // keep the maximum count
+
+    int maxC=0;
+    int count =0;
+
+    for( int i=0; i< A.size(); i++)
     {
         if( A[i] == 1)
         {
-            int j = i+1;
-            int count = 1;
-            while( A[j] == 1)
-            {
-                count++;
-                j++;
-            }
-            i=j;
-            maxCount = max(maxCount,count);
+            //add count 
+            count ++;
+        }
+        else 
+        {
+            //reset count 
+            count = 0;
         }
 
-        i++;
+        maxC = max( count , maxC);
     }
-
-    return maxCount;
+    return maxC;
 
 }
 

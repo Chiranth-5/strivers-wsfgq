@@ -291,35 +291,106 @@ int ArrayMedium::stockbuySell(vector<int>& A)
     // find all the difference of each subarrays and return the maximum one
 
     // method-2
-    // two pointers.
-    // let i stop when its right value is greater than that.
-    // now start j and calulate all the difference from there till u find the and new A[j which is less then Ai.
-    // if you find move i to there and start fresh.
+    // keep track of the minimum value .
+    // keep track of the maximum profit.
+    // traverse thru once. while doing find out the profits in each secnerio and rememeber the maximum value.
 
-    int i=0;
-    int n= A.size();
-    int maxP=0;
-    int P=0;
+    int minV= INT_MAX;
+    int maxP= INT_MIN;
 
-    while( i<n)
+    for( int i=0; i<A.size(); i++)
     {
-        if( A[i]<A[i+1])
-        {
-            // buy
-            int j=i+1;
+        // store the minimum value 
+        minV = min(A[i], minV);
 
-            while( A[j] >A[i])
-            {
-                //sell
-                P= A[j]-A[i];
-                maxP = max( maxP,P);
-                j++;
-            }
-            i=j;
+        // check profits
+        if( A[i]>minV)
+        {
+            int p = A[i]-minV;
+            //stroe the maximum profit
+            maxP = max(maxP,p);
         }
-        i++;
     }
 
     return maxP;
+    
 }
+
+vector<int> ArrayMedium::rearrangeBySign(vector<int>& A)
+{
+    // mehtod 1
+    // traverse thru A.
+    // if its negative  then fill this in asnwer array in the odd spaces
+    // if its positive then fill this in answer array in the even spaces
+
+    int n=A.size();
+    vector<int> ans(n);
+    int oddSpace =1;
+    int evenSpace =0;
+
+    for( int i=0; i<n; i++)
+    {
+        if( A[i]<0)
+        {
+            //odd space index
+            ans[oddSpace] = A[i];
+            oddSpace = oddSpace+2;
+        }
+        else
+        {
+            // even space
+            ans[evenSpace] = A[i];
+            evenSpace = evenSpace+2;
+        }
+    }
+
+    return ans;
+}
+
+vector<int> ArrayMedium::nextPermutation(vector<int>& A)
+{
+    //2 1 5 4 3 0 0
+
+    // next permutation is to find what will be the next value if its rearragned in the the dictionalry
+    
+    //1. will keep the prefix same till we find the break point.
+    //2 . Break point on the left and the right .
+
+    int n=A.size();
+
+    int breakL=-1;
+    for ( int i=1; i<n; i++)
+    {
+        if(A[i]>A[i-1])
+        {
+            breakL = i-1;
+            break;
+        }
+    }
+    //3. find the value which is greateer than breakL from all the values from the right. And swap it
+    // 2 1 5 4 3 0 0
+    //   bL
+
+    if( breakL !=-1)
+    {
+        // will start from the end as its in descending order
+        for( int i =n-1; i>=0; i--)
+        {
+            if( A[i] >A[breakL] )
+            {
+                swap(A[i],A[breakL]);
+                break;
+            }
+        }
+    }
+    //2 3 5 4 1 0 0
+
+    //4. now all the values from breakL till end must be sorted.
+    // As we know its in descending orderl Just reverse it
+
+    reverse(A.begin()+breakL+1, A.end());
+
+    return A;
+}
+
 
