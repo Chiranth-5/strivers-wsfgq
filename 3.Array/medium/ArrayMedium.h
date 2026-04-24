@@ -12,6 +12,9 @@ class ArrayMedium
         bool twoSum(vector<int>& arr, int target);
 
         vector<int> dutchflag( vector<int>& A);
+        int MajorityElementBoyerVoting( vector<int>A);
+        int KadaneAlgorithm( vector<int> A);
 
+        int stockbuySell(vector<int>& prices);
 
 };
