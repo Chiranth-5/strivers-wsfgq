@@ -40,9 +40,13 @@ int main()
 
     
 
-    vector<int> A = {1,2,3,8,7};
-    int longestConsecutive = obj.longestConsecutive(A);
-    cout << "Max longestConsecutive :" << longestConsecutive << endl;
+    // vector<int> A = {1,2,3,8,7};
+    // int longestConsecutive = obj.longestConsecutive(A);
+    // cout << "Max longestConsecutive :" << longestConsecutive << endl;
+
+    vector<int> A = {1,2,3};
+    int longestSubarray = obj.subarraySum(A,3);
+    cout << "longest Subarray from A : " << longestSubarray << endl;
     
     
 }

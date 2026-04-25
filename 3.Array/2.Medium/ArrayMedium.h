@@ -25,4 +25,7 @@ class ArrayMedium
         vector<int> leaders(vector<int>& A);
 
         int longestConsecutive(vector<int>& A) ;
+
+        // Function to find count of subarrays with sum equal to k
+        int subarraySum(vector<int>& arr, int k);
 };

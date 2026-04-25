@@ -500,3 +500,53 @@ int ArrayMedium::longestConsecutive(vector<int>& A)
     return maxlongest;
 }
 
+int ArrayMedium::subarraySum(vector<int>& A, int k)
+{
+    // Input : N = 4, array[] = {3, 1, 2, 4}, k = 6
+    // Output: 2
+    // Explanation: The subarrays that sum up to 6 are [3, 1, 2] and [2, 4].
+
+    // Input: N = 3, array[] = {1,2,3}, k = 3
+    // Output: 2
+    // Explanation: The subarrays that sum up to 3 are [1, 2], and [3].
+
+
+    //    method 3
+    // 1. while traversing keep calclauting the sum till there.
+    // 2. check if its same as the sum and 
+
+    int n = A.size();
+    int count =0;
+    int sum = 0;
+
+    unordered_map<int,int> prefixSum ; // key , value ---> preSum , index_number
+
+    for( int i=0; i<n; i++)
+    {
+        sum += A[i];
+        if( sum == k)
+        {
+            count++;
+        }
+
+        int rem = sum - k;
+        // if the remaning sum value is present before that means the reSum is present from that location till here.
+        if( prefixSum.find(rem) != prefixSum.end())
+        {
+            //found
+            // calclutle the new length fromt hat location
+
+            count++;
+
+        }
+
+        // add only if the presum is not there.
+        if( prefixSum.find(sum) ==  prefixSum.end())
+        {
+            prefixSum[sum] = i;
+        }
+
+    }
+    return count;
+
+}
