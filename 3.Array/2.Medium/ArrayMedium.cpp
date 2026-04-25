@@ -515,38 +515,35 @@ int ArrayMedium::subarraySum(vector<int>& A, int k)
     // 1. while traversing keep calclauting the sum till there.
     // 2. check if its same as the sum and 
 
-    int n = A.size();
-    int count =0;
-    int sum = 0;
+        int sum =0;
+        int count =0;
+        unordered_map<int,int> prefixCount;
+        int n= A.size();
 
-    unordered_map<int,int> prefixSum ; // key , value ---> preSum , index_number
+        //base case
+        prefixCount[0] =1;
 
-    for( int i=0; i<n; i++)
-    {
-        sum += A[i];
-        if( sum == k)
+        for( int i=0; i<n; i++)
         {
-            count++;
+            // calculate sum
+            sum = sum +A[i];
+
+
+
+            //check if the rem is present in prefixSum
+            int rem = sum -k;
+
+            if( prefixCount.find(rem) != prefixCount.end())
+            {
+                //found
+                count = count + prefixCount[rem];
+            }
+
+            // update prefixsum count
+            prefixCount[sum]++;
+
         }
 
-        int rem = sum - k;
-        // if the remaning sum value is present before that means the reSum is present from that location till here.
-        if( prefixSum.find(rem) != prefixSum.end())
-        {
-            //found
-            // calclutle the new length fromt hat location
-
-            count++;
-
-        }
-
-        // add only if the presum is not there.
-        if( prefixSum.find(sum) ==  prefixSum.end())
-        {
-            prefixSum[sum] = i;
-        }
-
-    }
-    return count;
-
+        return count;
+    
 }
