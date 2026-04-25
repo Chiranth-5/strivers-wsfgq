@@ -30,10 +30,19 @@ int main()
     // vector<int> rearrangeBySign = obj.rearrangeBySign(A);
     // obj.display(rearrangeBySign);
 
-    vector<int> A = {2,1,5,4,3,0,0};
-    vector<int> nextPermutation = obj.nextPermutation(A);
-    obj.display(nextPermutation);
+    // vector<int> A = {2,1,5,4,3,0,0};
+    // vector<int> nextPermutation = obj.nextPermutation(A);
+    // obj.display(nextPermutation);
 
+    // vector<int> A = {2,1,5,4,3,0,0};
+    // vector<int> leaders = obj.leaders(A);
+    // obj.display(leaders);
+
+    
+
+    vector<int> A = {1,2,3,8,7};
+    int longestConsecutive = obj.longestConsecutive(A);
+    cout << "Max longestConsecutive :" << longestConsecutive << endl;
     
     
 }

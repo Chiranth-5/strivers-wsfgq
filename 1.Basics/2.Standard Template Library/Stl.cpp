@@ -176,7 +176,9 @@ void Stl::priorityQueue()
 
 void Stl::set()
 {
-
+    // key
+    // its not key value pair. its just key
+    // look up time is O(1);
 }
 
 void Stl::mutliSet()

@@ -393,4 +393,110 @@ vector<int> ArrayMedium::nextPermutation(vector<int>& A)
     return A;
 }
 
+vector<int> ArrayMedium::leaders(vector<int>& A)
+{
+    // Input:
+    // arr = [4, 7, 1, 0]  
+    // Output:
+    // 7 1 0  
+
+    //method-1
+    // traverse from the right
+    int n = A.size();
+    int maxi=-1;
+    vector<int> ans;
+    for ( int i=n-1; i>=0; i--)
+    {
+        if( A[i]>maxi)
+        {
+            ans.push_back(A[i]);
+            maxi = A[i];
+        }
+    }
+
+    reverse(ans.begin(), ans.end());
+
+    return ans;
+}
+
+int ArrayMedium::longestConsecutive(vector<int>& A)
+{
+    // // Input:
+    // // nums = [100, 4, 200, 1, 3, 2]  
+    // // Output:
+    // // 4  
+    // // Explanation:
+    // // The longest sequence of consecutive elements in the array is [1, 2, 3, 4], which has a length of 4. This sequence can be formed regardless of the initial order of the elements in the array.
+
+    // // Example 2:
+    // // Input:
+    // // nums = [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]  
+    // // Output:
+    // // 9 
+
+    // menthod-1 : sort the values. Then find the consecutive using two varaibles streak and reset concept
+
+    // sort( A.begin(), A.end());
+
+    // int countOfConsecutiveValues=1;
+    // int maxC=-1;
+    // int n = A.size();
+    // for( int i=1; i<n;i++)
+    // {
+    //     if( A[i]-A[i-1] == 1)
+    //     {
+    //         countOfConsecutiveValues++;
+    //     }
+    //     else
+    //     {
+    //         //reset
+    //         countOfConsecutiveValues=1;
+    //     }
+
+    //     maxC= max(countOfConsecutiveValues,maxC);
+    // }
+
+    // return maxC;
+
+    // method-2
+    
+    // 1. store the value in set.
+    // 2. traverse thru this.
+    // 3. if the element is start then count its conitnues values.
+
+     
+    int n = A.size(); 
+    unordered_set<int> A_set;
+    
+   
+    for (int i = 0; i < n; i++) 
+    {
+        A_set.insert(A[i]);
+    }
+
+
+    int maxlongest =1;
+    // 1 2 3 8 7
+    for (auto it : A_set)
+    {
+        // if its a start then count its cosecutive
+        if( A_set.find(it - 1) == A_set.end())
+        {
+            int longest =1;
+            int value = it;
+            value++;
+            while( A_set.find(value) !=A_set.end())
+            {
+                longest++;
+                value++;
+            }
+            
+            maxlongest = max(maxlongest,longest);
+            //reset longest
+            
+        }
+    }
+
+    return maxlongest;
+}
 

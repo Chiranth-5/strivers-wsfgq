@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <map>
+#include <unordered_set>
 using namespace std;
 
 class ArrayMedium
@@ -21,4 +22,7 @@ class ArrayMedium
         vector<int> rearrangeBySign(vector<int>& A);
         vector<int> nextPermutation(vector<int>& A);
 
+        vector<int> leaders(vector<int>& A);
+
+        int longestConsecutive(vector<int>& A) ;
 };
