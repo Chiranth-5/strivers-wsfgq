@@ -94,41 +94,47 @@ int BinarySearch1D::binarySearchI(vector<int>& A, int target)
 }
 
 
-int BinarySearch1D::lowerBound(vector<int> A, int n, int x)
+int BinarySearch1D::lowerBound(vector<int> A, int n, int target)
 {
     // Example 1:
-    // Input Format: N = 4, arr[] = {1,2,2,3}, x = 2
+    // Input Format: N = 4, arr[] = {1,2,2,3}, target = 2
     // Result: 1
 
-    // { 2, 2, 2, 3}
-    //ans =0;
+    // lower bound :
+    // find the smallest_value which is greater than or equal to target.
+    // return the index of that smallest value.
 
-    //  same logic as binary search to find the mid value.
-    
-    // Once found we can elemate the right with no issue.
-    // we cannot elimate the left beacuse ther can be same value on the left and we need to find that as our answer
+    // search for the x using binary serarch.
+    // if the middle value >= x then this may be my answer.
+    // elimnate right and keep searching right.
 
-
-    int low = 0;
+    // search space is from low to high.
+    int low =0;
     int high = n-1;
-    int ans=-1;
+    
+    // this is my default lower_bound of x till i find new one.
+    int ans =n;
 
-    while( low<=high)
+    while( low<=high )
     {
-        int mid = low + ( high -low) /2;
+        
+        int mid = (low +high) /2;
 
-        if( A[mid] < x)
+        if( A[mid] >= target)
         {
-            //eleminate left
-            low =  mid+1;
-        }
-        else 
-        {
-            // elimante right but save the index if its same as mid
-            // this ensures that the left is searched again for the ans if found thatt will replace as the lower bound.
+            // this may be my new lower bound
             ans = mid;
+            // elimante right seach space
             high = mid-1;
+
         }
+        else
+        {
+            // eliminate right search space
+            low = mid+1;
+        }
+
+
     }
 
     return ans;
@@ -136,47 +142,51 @@ int BinarySearch1D::lowerBound(vector<int> A, int n, int x)
 
 }
 
-int BinarySearch1D::upperBound(vector<int> A, int n, int x)
+int BinarySearch1D::upperBound(vector<int> A, int n, int target)
 {
     // Example 1:
-    // Input Format: N = 4, arr[] = {1,2,2,3}, x = 2
+    // Input Format: N = 4, arr[] = {1,2,2,3}, target = 2
     // Result: 1
 
-    // { 2, 2, 2, 3}
-    // ans = 0;
+    // upper bound :
+    // find the smallest_value which is greater than to target.
+    // return the index of that smallest value.
 
-    //  same logic as binary search to find the mid value.
-    
-    // eliminate left. But save tthe index. if its found in the right side it will be replaced with the upper bound.
-    // eliminate right.
-    int low = 0;
+    // search for the x using binary serarch.
+    // if the middle value > x then this may be my answer.
+    // elimnate right and keep searching right.
+
+    // search space is from low to high.
+    int low =0;
     int high = n-1;
-    int ans =-1;
+    
+    // this is my default lower_bound of x till I find new one.
+    int ans =n;
 
-    while( low<=high)
+    while( low<=high )
     {
-        int mid = (low+(high-low)/2);
         
+        int mid = (low +high) /2;
 
-        //10,30,30,30,50,60
-        //
-        if( A[mid] <= x)
+        if( A[mid] > target)
         {
-            // eliminate left. 
-            // But save tthe index. 
-            // if its found in the right side it will be replaced with the upper bound.
+            // this may be my new upper_bound
             ans = mid;
-            low = mid+1;
+            // elimante right seach space
+            high = mid-1;
+
         }
         else
         {
-            // Elimate right.
-            high = mid-1;
+            // eliminate right search space
+            low = mid+1;
         }
+
 
     }
 
     return ans;
+
 }
 
 int BinarySearch1D::searchInsert(vector<int> A, int x)
@@ -184,9 +194,10 @@ int BinarySearch1D::searchInsert(vector<int> A, int x)
     //10 20 30 40 
 
     // find the position of insert.
+    // if the x already present then insert at that location.
+    // if  x is not present then insert at the location where the A[smallest_value_index] >= x;
+    // so ineed to insert at lower bound.
     
-    // Finish binary serach . the location where the l croses the h. l will be the location we use to insert the new value.
-
     int low =0;
     int high =A.size()-1;
     int ans;
@@ -194,25 +205,30 @@ int BinarySearch1D::searchInsert(vector<int> A, int x)
     while( low <= high)
     {
         int mid = low+(high-low)/2;
-        if( A[mid] < x)
+        if( A[mid] >= x)
         {
-            // eliminate left. 
-            // But save the index. 
-            // if its found in the right side it will be replaced with the upper bound.
+            // update my ans
             ans = mid;
-            low = mid+1;
+            // eliminate right . 
+            high = mid-1;
         }
         else
         {
-            // eliminate right
-            high = mid -1;
+            // eliminate left
+            low = mid+1;
         }
     }
 
     return ans;
 }
 
-
-
+int BinarySearch1D::findFloor(vector<int> A, int target)
+{
+    // write this
+}
+int BinarySearch1D::findCeil(vector<int> A, int target)
+{
+    //write this
+}
 
 

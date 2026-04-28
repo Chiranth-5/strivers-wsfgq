@@ -17,4 +17,6 @@ class BinarySearch1D
         int upperBound(vector<int> A, int n, int x);
 
         int searchInsert(vector<int> A, int x) ;
+        int findFloor(vector<int> A, int target);
+        int findCeil(vector<int> A, int target);
 };
